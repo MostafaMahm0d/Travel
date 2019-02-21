@@ -1,0 +1,7 @@
+<h1>ADD NEW EXPERIENCE</h1>
+<form method="post">{% csrf_token %}
+	{{comment_form.as_p}}
+	<button type='submit'>save </button>
+	<button type='reset'>reset </button>
+
+</form>

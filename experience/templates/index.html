@@ -1,0 +1,45 @@
+<html>
+<head></head>
+<body>
+	<table border="2">
+		<tr>
+			<th>exp_id</th>
+
+			<th>message</th>
+			<th>user_id</th>
+			<th>city_id</th>
+			<th>rate</th>
+			<th>all</th>
+			<th>update</th>
+			<th>delete</th>
+			<th>comments</th>
+			<th>cs</th>
+
+			{% for ex in allexp %}
+			<tr>
+				<td>{{ex.id}}</td>
+
+
+				<td>{{ex.message}}</td>
+				<td>{{ex.user_id}}</td>
+				<td>{{ex.city_id}}</td>
+				<td>{{ex.rate}}</td>
+				<td><a href="exp/{{ex.id}}">more</a></td>
+				<td><a href="update/{{ex.id}}">update</a></td>
+				<td><a href="delete/{{ex.id}}">remove me</a></td>
+				
+				<td><a href="comm/{{ex.id}}">reply</a></td>
+				
+				<td><a href="comm/new">create</a></td>
+				
+
+			</tr>
+			{% endfor %}
+				<a href="exp/new">new experience</a>
+		</tr>
+
+	</table>
+	<!-- {% load static %}
+	<img src="{% static 'index.jpeg' %}" height=300px width= 500px> -->
+</body>
+</html>

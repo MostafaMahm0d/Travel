@@ -1,0 +1,72 @@
+<div class="content-section">
+        <form method="POST"enctype='multipart/form-data'>
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Join Today</legend>
+                {{ form.as_ul}}
+                {{ form.non_field_errors }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already Have An Account? <a class="ml-2" href="/Travelling/userlogin">Sign In</a>
+                
+            </small>
+        </div>
+    </div>
+    ===============================
+    <div class="content-section">
+        <form role="form" class="form-horizontal" method="post" enctype='multipart/form-data'>{% csrf_token %}
+                <div class="container">
+                        <center><h2>Login Form</h2></center>
+                        {%if form.errors %}
+                        <center><span style="color:red;">Invaled username or password</span></center>
+                        
+                        {%endif%}
+                        
+                        <div class="input-group">
+                            <label for="uname"><b>Username</b></label>
+                            <span class="input-group-addon" style="background-color:#b77b48; color:white"><span class="glyphicon glyphicon-user"></span></span>
+                            <input class="form-control"  maxlength="30" name="username"  type="text" /> 
+                           
+                        </div>
+                        <div class="input-group">
+                                <label for="uname"><b>Email</b></label>
+                                <span class="input-group-addon" style="background-color:#b77b48; color:white"><span class="glyphicon glyphicon-user"></span></span>
+                                <input class="form-control"  maxlength="30" name="username"  type="email" /> 
+                               
+                            </div>
+                        <div class="input-group">
+                                <label for="uname"><b>Password</b></label>
+                                <span class="input-group-addon" style="background-color:#b77b48; color:white"><span class="glyphicon glyphicon-user"></span></span>
+                                <input class="form-control" maxlength="30" name="password1"  type="password" /> 
+                        </div>
+                        <div class="input-group">
+                            <label for="uname"><b>Password confirmation</b></label>
+                            <span class="input-group-addon" style="background-color:#b77b48; color:white"><span class="glyphicon glyphicon-user"></span></span>
+                            <input class="form-control" maxlength="30" name="password2"  type="password" /> 
+                           
+                        </div>
+                        <div class="input-group">
+                            <label for="uname"><b>Your image</b></label>
+                            <span class="input-group-addon" style="background-color:#b77b48; color:white"><span class="glyphicon glyphicon-user"></span></span>
+                            <input class="form-control" maxlength="30" name="user_image"  type="file" accept="image/*">
+                           
+                        </div>
+                    
+                        <button type="submit">Login</button>
+                        <div class="container" >
+                            <span class="psw"><a style=" text-decoration: none; color:black;" href="/Travelling/register">SignUp</a></span>
+                        </div>
+                </div>
+            
+            
+          </form>
+          {% extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+{% endblock content %}
+{{ user.profile.image.url }}

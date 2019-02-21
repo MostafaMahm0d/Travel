@@ -1,0 +1,54 @@
+<!-- <h1>ADD NEW EXPERIENCE</h1>
+<form method="post">{% csrf_token %}
+	{{comment_form.as_p}}
+	<button type='submit'>save </button>
+	<button type='reset'>reset </button>
+
+</form> -->
+<html>
+<head></head>
+<body>
+	
+
+			<!-- <a href=''>home</a>	 -->
+			<h4>experience: <br><br> <span> {{exp.message}} </span> </h4>
+			<h3>experience comment:</h3>
+			<!-- <p>user_id {{exp.user_id}}</p> -->
+			<!-- <p>city_id  {{exp.city_id}}</p> -->
+			{% for co in comment%}
+			<!-- {%for use in user %}								
+
+			<h3> {{co.comment}} </h3>
+			{% endfor %} -->
+					{%for r in user%}
+										{%if exp.user_id == r.id %}
+										<p>name is {{r.username}} :{{co.comment}}</p>
+									
+    									<!-- <img src="/{{r.user_image}}" > -->
+
+
+										{%endif%}
+										{% endfor %} 
+		{% endfor %}
+	</div>
+	
+
+		
+<div style="width:50%;margin: 0 auto; margin-top:100px;margin-top: 144px;
+margin-left: 441px;">
+<h1>add comment</h1>
+<form method="post">{% csrf_token %}
+	{{comment_form.as_p}}
+
+	<button type='submit'>save </button>
+	<button type='reset'>reset </button>
+
+</form>
+</div>
+</body>
+</html>
+
+
+
+<!-- <h2>user_id: {{exp.user_id}}</h2> -->
+<!-- <h2>city_id: {{exp.city_id}}</h2> -->

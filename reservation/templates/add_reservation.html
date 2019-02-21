@@ -1,0 +1,194 @@
+{% load static %}
+<!-- <!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<form method = 'POST'>{% csrf_token %}
+		{{ form.as_p}}
+		<button type="submit" >Save</button>
+	</form>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Tour Template</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<meta name="author" content="" />
+
+  <!-- Facebook and Twitter integration -->
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{% static 'css/icomoon.css' %}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="{% static 'css/flexslider.css' %}">
+
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
+	
+	<!-- Date Picker -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap-datepicker.css' %}">
+	<!-- Flaticons  -->
+	<link rel="stylesheet" href="{% static 'fonts/flaticon/font/flaticon.css' %}">
+
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+	<!-- Modernizr JS -->
+	<script src="{% static 'js/modernizr-2.6.2.min.js' %}"></script>
+	<!-- FOR IE9 below -->
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
+
+	</head>
+	<body>
+		
+<!-- ============================================================================================================== -->
+
+			<!-- ======================================================================= -->
+			<div id="colorlib-reservation" style="background-image: url('/static/image/download (1).jpeg');height:100vh;background-repeat:no-repeat;background-size:contain;background-position:center">
+			<!-- <div class="container"> -->
+				<br><br><br><br>
+				<div class="row">
+					<div class="search-wrap">
+						<div class="container">
+							<ul class="nav nav-tabs active">
+								<!-- <li class="active"><a data-toggle="tab" href="#flight"><i class="flaticon-plane"></i> Flight</a></li> -->
+								<li class="active"><a data-toggle="tab" href="/reservation/add"><i class="flaticon-resort"></i> Hotel</a></li>
+								<!-- <li><a data-toggle="tab" href="/carrental/add"><i class="flaticon-car"></i> Car Rent</a></li> -->
+								<!-- <li><a data-toggle="tab" href="#cruises"><i class="flaticon-boat"></i> Cruises</a></li> -->
+							</ul>
+						</div>
+						<div class="tab-content">
+						
+				         <div id="hotel" class=" tab-pane fade active in">
+						      <form method="post" class="colorlib-form"> {% csrf_token %}
+				              	<div class="row">
+				              	 <div class="col-md-1">
+				              	 	<div class="booknow">
+				              	 		<h2>Book Now</h2>
+					              	 	<span>Best Price Online</span>
+				              	 	</div>
+				              	 </div>
+				                <div class="col-md-3">
+				                  <div class="form-group">
+				                    <label for="date">Check-in:</label>
+				                    <div class="form-field">
+				                      <i class="icon icon-calendar2"></i>
+				                      <input type="text" id="date" class="form-control date" placeholder="Check-in date" name ="start_date">
+				                    </div>
+				                  </div>
+				                </div>
+				                <div class="col-md-3">
+				                  <div class="form-group">
+				                    <label for="date">Check-out:</label>
+				                    <div class="form-field">
+				                      <i class="icon icon-calendar2"></i>
+				                      <input type="text" id="date" class="form-control date" placeholder="Check-out date" name ="end_date">
+				                    </div>
+				                  </div>
+				                </div>
+
+				                <div class="col-md-2">
+				                  <div class="form-group">
+				                    <label for="date">Choose Hotel:</label>
+				                    <div class="form-field">
+															<select   id="peoplee" class="form-control" name ="hotel" >
+															{%for i in hotels%}
+															<option  value="{{i.id}}" style="background-color: #4a4a58; color:white">{{i.hotel_name}}</option>
+															{% endfor %}
+															</select> 
+														</ul>
+													</li>
+				                      
+				                    </div>
+				                  </div>
+				                </div>
+
+				               
+
+				                <div class="col-md-1">
+				                  <div class="form-group">
+				                    <label for="guests">Guest</label>
+				                    <div class="form-field">
+				                      <i class="icon icon-arrow-down3"></i>
+				                      <select   id="people" class="form-control" name ="guest" >
+				                        <option  value="1" style="background-color: #4a4a58; color:white">1</option>
+				                        <option  value="2" style="background-color: #4a4a58; color:white">2</option>
+				                        <option  value="3" style="background-color: #4a4a58; color:white">3</option>
+				                        <option  value="4" style="background-color: #4a4a58; color:white">4</option>
+				                        <option  value="5" style="background-color: #4a4a58; color:white">5+</option>
+				                      </select> 
+				                    </div>
+				                  </div>
+				                </div>
+				                <div class="col-md-2">
+				                  <input type="submit" name="submit" id="submit" value="Find Hotel" class="btn btn-primary btn-block">
+				                </div>
+				              </div>
+				              {{ form.errors }}
+				            </form>
+						   </div>
+
+
+						  
+			         </div>
+					</div>
+				</div>
+			</div>
+
+	
+	
+	<!-- jQuery -->
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<!-- jQuery Easing -->
+	<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+	<!-- Bootstrap -->
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<!-- Waypoints -->
+	<script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+	<!-- Flexslider -->
+	<script src="{% static 'js/jquery.flexslider-min.js' %}"></script>
+	<!-- Owl carousel -->
+	<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+	<!-- Magnific Popup -->
+	<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'js/magnific-popup-options.js' %}"></script>
+	<!-- Date Picker -->
+	<script src="{% static 'js/bootstrap-datepicker.js' %}"></script>
+	<!-- Stellar Parallax -->
+	<script src="{% static 'js/jquery.stellar.min.js' %}"></script>
+	<!-- Main -->
+	<script src="{% static 'js/main.js' %}"></script>
+
+	</body>
+</html>
